@@ -1,0 +1,127 @@
+\documentclass[submitted,12pt]{article}
+\usepackage{appendix}
+\usepackage{els}
+\usepackage{caption}
+\captionsetup{font=scriptsize}
+\usepackage{notate}
+\usepackage{enumitem}
+\newlist{enumerate*}{enumerate}{1}
+\usepackage{mat2}
+\newcommand{\Mink}{Minkowski\xspace}
+\renewcommand{\rev}[1]{Review of \cite{#1}}
+
+\newcommand{\tras}[1]{tr.~as \cite{#1}}
+\newcommand{\trin}[1]{tr.~as \cite{#1}}
+\newcommand{\PRZL}{\citetitle{Reichenbach1928}\xspace}
+%\newcommand[\rzla]{\citep[#1]{Reichenbach1928}; tr.~\cite[041-2101, #2]{HR}}
+\newcommand{\crc}[2]{(\cite[#1]{Reichenbach1925}/#2)}
+%; tr.~\cite*[#2]{Reichenbach2006}
+%\cite[#3]{Reichenbach1926a}; tr.~\cite*[#4]{Reichenbach2006}}
+%\cite[#3]{Reichenbach1924}; tr.~\cite*[#4]{Reichenbach1969}
+\newcommand{\crw}[2]{(\cite[#1]{Reichenbach1926a}/#2)}
+
+\newcommand{\TDE}{Transverse Doppler Effect\xspace}
+\newcommand{\tDe}{transverse Doppler effect\xspace}
+\newcommand{\EP}{\Ehr paradox\xspace}
+\newcommand{\mspp}[1]{\mkbibbrackets{p.~#1}}
+\newcommand{\igamma}{\ensuremath{\gamma^{-1}}\xspace}
+
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=entrykey, match=Einstein1925d, fieldset=options,  fieldvalue={skipbib=true}]
+    }
+  }
+}
+
+
+
+\usepackage{etoolbox}
+
+\pretocmd{\everypar}{\citereset}{}{}
+
+%; tr.~\cite*[#2]{Reichenbach2006}
+
+\RenewDocumentCommand\qa{mmoo}{\blockquote[{\cite[#3]{Reichenbach1928}; tr.~\cite[041-2101, #4]{HR}}]{#1} \orig{#2}\xspace}
+\RenewDocumentCommand\qah{mmoo}{\blockquote[{\cite[#3]{Reichenbach1928}; tr.~\cite[041-2101, #4]{HR}}]{#1} \hide{#2}\xspace}
+
+\newcommand{\crz}[2]{(\cite[#1]{Reichenbach1928}/#2)\xspace}
+\renewcommand{\rzl}[2]{(\cite[#1]{Reichenbach1928}/#2)\xspace}
+\renewcommand{\rzlp}[2]{\cite[#1]{Reichenbach1928}/#2\xspace}
+%; tr.~\cite*[#2]{Reichenbach1958}
+
+%\NewDocumentCommand\qrz{mmoo}{\blockquote[{\cite[#3]{Reichenbach1928}; tr.~\cite*[#4]{Reichenbach1958}}]{#1} \orig{#2}\xspace}
+%\NewDocumentCommand\qrzh{mmoo}{\blockquote[{\cite[#3]{Reichenbach1928}; tr.~\cite*[#4]{Reichenbach1958}}]{#1} \hide{#2}\xspace}
+\NewDocumentCommand\qrw{mmoo}{\blockquote[{\cite[#3]{Reichenbach2006}; tr.~\cite*[#4]{Reichenbach1958}}]{#1} \orig{#2}\xspace}
+
+\NewDocumentCommand\qrwh{mmoo}{\blockquote[{\cite[#3]{Reichenbach1926a}; tr.~\cite*[#4]{Reichenbach2006}}]{#1} \hide{#2}\xspace}
+
+\NewDocumentCommand\qrc{mmoo}{\blockquote[({\cite[#3]{Reichenbach1925}; tr.~\cite*[#4]{Reichenbach2006}})]{#1} \orig{#2}\xspace}
+\NewDocumentCommand\qrch{mmoo}{\blockquote[{\cite[#3]{Reichenbach1925}; tr.~\cite*[#4]{Reichenbach2006}}]{#1} \hide{#2}\xspace}
+\NewDocumentCommand\qax{mmoo}{\blockquote[{\cite[#3]{Reichenbach1925}; tr.~\cite*[#4]{Reichenbach1969}}]{#1} \orig{#2}\xspace}
+\NewDocumentCommand\qaxh{mmoo}{\blockquote[{\cite[#3]{Reichenbach1924}; tr.~\cite*[#4]{Reichenbach1969}}]{#1} \hide{#2}\xspace}
+
+\NewDocumentCommand\lK{mm}{\ensuremath{l^{K{#1}}_{K{#2}}}}
+\NewDocumentCommand\LK{mm}{\ensuremath{L^{K{#1}}_{K{#2}}}}
+
+
+\newcommand{\MME}{Michelson–Morley experiment\xspace}
+\newcommand{\ED}{ether-drift\xspace}
+\renewcommand{\qrw}{\qrwh}
+\renewcommand{\qa}{\qah}
+\renewcommand{\qrc}{\qrch}
+\renewcommand{\qrz}{\qrzh}
+\renewcommand{\qax}{\qaxh}
+%\newcommand{\SN}{\cite{SN}}
+%\newcommand{\Ap}{Appendix\xspace}
+\renewcommand{\hr}[1]{HR 041-2101, #1\xspace}
+
+\newcommand{\rep}[2]{(\cite[#1]{Reichenbach1920a}/#2)\xspace}
+
+\renewcommand{\rzla}[2]{(\cite[#1]{Reichenbach1928}; tr.~\cite*[041-2101, #2]{HR})\xspace}
+\newcommand{\cax}[2]{(\cite[#1]{Reichenbach1924}; tr.~\cite*[#2]{Reichenbach1969})\xspace}
+\newcommand{\ra}[2]{(\cite[#1]{Reichenbach1924}/#2)\xspace}
+\newcommand{\rc}[2]{(\cite[#1]{Reichenbach1925}/#2)\xspace}
+\newcommand{\rw}[2]{(\cite[#1]{Reichenbach1926a}/#2)\xspace}
+\newcommand{\gs}[2]{(\cite[#1]{Reichenbach1922a}/#2)\xspace}
+
+
+%\renewcommand{\rzl}[2]{(\cite[#1]{Reichenbach1928}; tr.~\cite*[#2]{Reichenbach1958})\xspace}
+\renewcommand{\theequation}{\roman{equation}}
+
+\newcommand{\rhp}[2]{(\cite[#1]{Reichenbach1920a}; tr.\ \citeyear{Reichenbach1969} #2)\xspace}
+
+\newcommand{\wpo}{worldpoint\xspace}
+
+\begin{document}
+
+\title{Is Time Dilation \s{Real}? Einstein and the Transverse Doppler Effect}
+\maketitle
+
+Over the last two decades, philosophical discussions of special relativity have repeatedly returned to the question of whether relativistic effects, most notably length contraction and time dilation, ultimately call for a \emph{dynamical} explanation \citepp{Brown2005}, a \emph{kinematical} explanation \citepp{Janssen2009}, or whether one should move beyond this binary choice altogether \citep{Acuna2016}. While the debate is primarily theoretical in intent, proponents of the dynamical approach have often framed it against a historical background. In particular, it has been argued that, although Einstein initially presented length contraction and time dilation as merely \emph{apparent} coordinate effects, he was ultimately aiming at an account in which these effects reflect \emph{real} physical changes in the equilibrium configurations of moving atomic systems \citep{Brown2022}.  This paper aims to further challenge this historical narrative, in the hope that this result will bear directly on contemporary debates concerning the theoretical role of the dynamical–kinematical distinction. 
+
+As recent literature has shown \citep{Giovanelli2023a}, concerns about the proper use of the categories \s{real} and \s{apparent}, as well as \s{kinematical} and \s{dynamical}, had already emerged in the early 1910s concerning the length contraction. This paper argues that the same dialectic between the \emph{apparent} and the \emph{real} emerges even more clearly in the case of time dilation. Like length contraction, time dilation is \s{apparent}, since it is a coordinate effect that vanishes for a suitably chosen co-moving observer; yet it is \s{real}, since it cannot be removed for all non-co-moving observers simultaneously, provided that the new kinematics hold. In this case, no comparable philosophical controversy arose, largely because there was no genuine Lorentzian counterpart to time dilation. Nevertheless, in contrast to length contraction, the empirical testability of time dilation appeared to be reasonably feasible. 
+
+As early as 1907, Einstein appealed to Johannes \citet{Stark1906}’s experimental work on fast-moving ions in canal rays, which seemed to suggest the presence of a second-order Doppler effect in the transverse direction of motion, that is, even in the case in which the classical Doppler effect disappears. A concrete possibility for testing relativistic kinematics was thus at hand. As the paper will show, from the outset, \citet{Einstein1907d} rejected \citets{Stark1906} original explanation, according to which ions in motion were thought to undergo a \s{real}, dynamical contraction of their intrinsic frequency. Accordingly, \textcites[422]{Einstein1908}[133]{Einstein1910} initially labeled the change in the observed frequency \s{apparent} in order to emphasize that the intrinsic frequency of ions is supposed to be invariant. Nevertheless, the \tDe is \s{real}, since the frequency shift necessarily appears for non-co-moving observers if the new kinematics hold. The transverse Doppler effect thus offered, at least in principle, a direct test of time dilation, provided that atomic spectral emitters can serve as \s{good} clocks. 
+
+From the 1920s onward, Einstein explicitly emphasized that the behavior of atomic clocks could not yet be derived from a complete microscopic theory. Such a theory would then indeed provide a \emph{dynamical explanation} of why all atomic clocks are \emph{identical} when compared in the same rest frame and therefore emit the same spectral lines. However, this line of reasoning leads to an inevitable conclusion. Given the spectral identity of atoms, and assuming that there is no contribution from motion along the line of sight, the transverse frequency shift must inevitably admit a purely \emph{kinematical explanation}, namely as a consequence of time dilation itself. Somewhat paradoxically, the full realization of the dynamical program shows that time-dilation effects, including the transverse frequency shift, are purely kinematical. In this sense, this paper suggests that the \tDe offers a particularly illuminating case for reassessing the long-standing debate between kinematical and dynamical interpretations of special relativity.  The paper concludes that much of the misunderstanding arises from the fact that Einstein’s demand for a dynamical account of rods and clocks has been read as a demand for \emph{explanation} of the new kinematics, whereas it was primarily motivated by the problem of its \emph{confirmation}. 
+
+
+\printbibliography
+
+
+
+
+\end{document}
+
+
+Over the last two decades, philosophical discussions of special relativity have repeatedly focused on whether relativistic effects—most notably length contraction and time dilation—require a dynamical explanation (Brown 2005) or a kinematical one (Janssen 2009), or whether this binary choice should be abandoned altogether (Acuña 2016). Although this debate is primarily theoretical, advocates of the dynamical approach often appeal to historical considerations. In particular, it has been claimed that, while Einstein initially described length contraction and time dilation as merely apparent coordinate effects, he ultimately aimed to show that they reflect real physical changes in the equilibrium states of moving atomic systems (Brown and Read 2022). This paper challenges that historical narrative and argues that clarifying Einstein’s position bears directly on contemporary disputes concerning the dynamical–kinematical distinction.
+
+Recent scholarship (Giovanelli 2023) has shown that, in the early 1910s, the categories ‘real’ and ‘apparent,’ as well as ‘kinematical’ and ‘dynamical,’ were already under scrutiny in discussions of length contraction. I argue that an analogous and even clearer dialectic emerges in the case of time dilation. Like length contraction, time dilation is ‘apparent,’ since it is a coordinate effect that vanishes for a suitably chosen co-moving observer; yet it is ‘real,’ since it cannot be eliminated for all non-co-moving observers simultaneously, provided that the new kinematics hold. In this case, no comparable philosophical controversy arose, largely because there was no genuine Lorentzian counterpart to time dilation. Nevertheless, in contrast to length contraction, the empirical testability of time dilation appeared reasonably feasible.
+
+As early as 1907, Einstein invoked Johannes Stark’s experiments on fast-moving ions in canal rays, which seemed to indicate a second-order (transverse) Doppler effect—i.e., a frequency shift that persists even when the classical Doppler effect vanishes. This provided a concrete opportunity to test relativistic kinematics. From the outset, Einstein rejected Stark’s dynamical interpretation, according to which moving ions undergo a ‘real’ contraction of their intrinsic frequency. Instead, he characterized the observed frequency shift as ‘apparent,’ emphasizing that the intrinsic frequency of the ions remains invariant. Nevertheless, the transverse Doppler effect is ‘real’ in that it must occur for non-co-moving observers if relativistic kinematics is correct. In principle, it thus constitutes a direct test of time dilation, provided that atomic spectral emitters function as reliable clocks.
+
+From the 1920s onward, Einstein stressed that a complete microscopic theory of atomic clocks was still lacking. Such a theory would provide a dynamical account of why all atoms are spectrally identical in their rest frame. Yet this very assumption leads to a striking conclusion: given spectral identity and the absence of motion along the line of sight, the transverse frequency shift admits a purely kinematical explanation as a manifestation of time dilation. Paradoxically, the full dynamical program reinforces the kinematical status of time-dilation effects. In this sense, the transverse Doppler effect offers a particularly illuminating case for reassessing the long-standing debate between kinematical and dynamical interpretations of special relativity. The paper concludes that much of the misunderstanding arises from reading Einstein’s demand for a dynamical account of rods and clocks as a demand for an explanation of the new kinematics, whereas it was primarily motivated by the problem of their confirmation.
+
+
