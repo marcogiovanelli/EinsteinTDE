@@ -1,0 +1,363 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{EinsteinTDE-macros}[2026/09/07 Personal macros for EinsteinTDE.tex, flattened for Springer/Synthese submission]
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file consolidates, in their original load order, only the personal
+% macros from the author's local "elsnat"/"ii" package chain that are
+% actually used by EinsteinTDE.tex and natbib.bib. It replaces:
+%   \usepackage{elsnat}
+%   \usepackage{ii}
+% Unused convenience macros (for other papers/projects) have been dropped.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== from elsnat.sty: general layout / language / typography packages ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[super]{nth}
+\usepackage{epigraph}
+\renewcommand{\epigraphsize}{\singlespacing\footnotesize}
+
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{ifdraft}
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny,obeyDraft]{todonotes}
+\newcommand{\todoi}[1]{\todo[inline]{#1}}
+
+\usepackage[]{lipsum}
+\usepackage[german,latin,french,USenglish]{babel}
+\usepackage{xspace}
+\usepackage{paralist}
+\usepackage{xcolor}
+
+\usepackage[german=guillemets,english=american,autostyle=true,thresholdtype=words,threshold=100,autopunct=true,style=american]{csquotes}
+
+\newcommand*{\textitplusparen}[1]{\textit{#1.}}
+
+\usepackage{enumitem}
+\setitemize{itemsep=2pt,topsep=4pt,parsep=2pt,partopsep=0pt,leftmargin=*, labelindent=*}
+\renewcommand{\labelitemi}{--}
+
+\setlist[description]{before=\vspace{10pt},after=\vspace{30pt},itemsep=10pt,topsep=0pt,parsep=0pt,partopsep=-23pt,leftmargin=1pc, labelindent=*,font=\normalfont\textitplusparen}
+
+\AfterEndEnvironment{description}{\noindent}
+\usepackage{hyphenat}
+\hyphenation{Schr\"{o}-ding-er}
+\hyphenation{Schr\"{o}-ding-ers}
+\hyphenation{Spring-er}
+\hyphenation{Des-cartes}
+\hyphenation{Kretsch-mann}
+\hyphenation{co-in-ci-dence}
+\hyphenation{Point-Co-in-ci-dence}
+\hyphenation{Lo-rentz}
+\hyphenation{Ueber-licht-ge-schwindig-keits}
+\hyphenation{Licht-ge-schwindig-keits}
+\hyphenation{Zeit-schrift}
+\hyphenation{Mey-er-son}
+\hyphenation{Rei-chen-bach}
+\hyphenation{Hei-sen-berg}
+\hyphenation{Eh-ren-fest}
+\hyphenation{Min-kow-ski}
+\hyphenation{Ka-lu-za}
+\hyphenation{geo-me-tri-za-tion}
+\hyphenation{Schwarz-schild}
+
+\usepackage{marginnote}
+\renewcommand{\marginpar}{\marginnote}
+
+\newcommand{\Erratum}[2]{#2}
+\usepackage{iflang}
+\definecolor{b}{RGB}{176,196,222}
+
+\usepackage{soul}
+\usepackage{etoolbox}
+
+\usepackage{fnpct}
+
+\usepackage[letterspace=180]{microtype}
+\setlength{\emergencystretch}{2pt}
+
+\usepackage[authoryear]{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== from char.sty (stray-Unicode-character safety net) ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{newunicodechar}
+\DeclareUnicodeCharacter{FB00}{\hl{ff}}
+\DeclareUnicodeCharacter{0308}{\hl{pippo}}
+\DeclareUnicodeCharacter{02028}{\hl{pippo}}
+\DeclareUnicodeCharacter{FB01}{\hl{fi}}
+\DeclareUnicodeCharacter{FB02}{\hl{fl}}
+\DeclareUnicodeCharacter{0300}{\hl{'}}
+\DeclareUnicodeCharacter{0080}{\hl{pippo}}
+\DeclareUnicodeCharacter{0099}{\hl{'}}
+\DeclareUnicodeCharacter{221A}{\hl{pippo}}
+\DeclareUnicodeCharacter{2260}{\hl{pappa}}
+\DeclareUnicodeCharacter{2032}{'}
+\DeclareUnicodeCharacter{10FC01}{\hl{pippo}}
+\DeclareUnicodeCharacter{200B}{\hl{pippo}}
+\DeclareUnicodeCharacter{009F}{\hl{pippo}}
+\DeclareUnicodeCharacter{0090}{\hl{pippo}}
+\DeclareUnicodeCharacter{0301}{\hl{pippo}}
+\DeclareUnicodeCharacter{2212}{\hl{pippo}}
+\DeclareUnicodeCharacter{201B}{\hl{pippo}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== from refnat.sty (packages, hyperref metadata, and the shorthands ====
+% ====   actually used -- \cref is used directly in the text)          ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url}
+\usepackage{amsmath}
+\hypersetup{
+   pdfauthor={Marco Giovanelli},
+}
+\usepackage{cleveref}
+\newcommand{\ensurecomma}{%
+  \@ifnextchar,{}{,\xspace}}
+\newcommand\ie{{\textit{i.e.}}\ensurecomma}
+\newcommand{\etc}{\@ifnextchar.{, etc}{, etc.\xspace}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== from mat.sty (only the fraction/factor helpers actually used) ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[]{mathtools}
+
+\newcommand{\hfrac}[2]{\ensuremath{{#1}/{#2}}\xspace}
+\newcommand{\xyzt}{\ensuremath{x,y,z,t}\xspace}
+\newcommand{\gammafactorh}{\ensuremath{\hfrac{1}{{\sqrt{1- \frac{v^2}{c^2}}}}}\xspace}
+\newcommand{\betafactorh}{\ensuremath{\hfrac{v}{c}}\xspace}
+\newcommand{\betafactorsquared}{\ensuremath{\frac{v^2}{c^2}}\xspace}
+\newcommand{\betafactorsquaredh}{\ensuremath{\hfrac{v^2}{c^2}}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== qnat.sty (only the citation/quotation macros actually used) ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xparse}
+
+\newcommand{\origins}[1]{\textins{\german{#1}}}
+\newcommand{\origg}[1]{(\german{#1})\xspace}
+
+\newcommand{\fn}[1]{; fn.~#1}
+
+\newcommand*{\repr}[2]{{R}epr.~in \citealt[#2]{#1}}
+\newcommand*{\reprcpae}[2]{\repr{CPAE}{\VD{#1}{#2}}}
+
+\newcommand{\rev}[1]{{r}eview of \citeatb{#1}}
+
+\newcommand{\s}[1]{`#1'}
+
+\NewDocumentCommand\q{moo}{%
+\IfNoValueTF {#3}%
+   {\@ifnextchar,{\blockquote{#1,}\@gobble}{\blockquote{#1}\hide{#2}}}%
+   {%
+  \IfNoValueTF {#2}%
+  {\blockquote[{#3}]{#1}\hide{#2}}
+{\IfNoValueTF {#3}%
+{\blockquote[{#3}]{#1}\hide{#2}}%
+{\blockquote[{#3}]{#1}\hide{#2}}%
+}
+}
+\unspace}
+
+\NewDocumentCommand\qt{mmo}{%
+\IfNoValueTF {#3}%
+   {\@ifnextchar,{\blockquote{#1,}\@gobble}{\blockquote{#1}\hide{#2}}}%
+   {%
+  \IfNoValueTF {#2}%
+  {\blockquote[{#3}]{#1}\hide{#2}}
+{\IfNoValueTF {#3}%
+{\blockquote[{#3}]{#1}\hide{#2}}%
+{\blockquote[{#3}]{#1}\hide{#2}}%
+}
+}
+\unspace}
+
+\NewDocumentCommand\VP{mm}{Vol.\ #1, #2}
+\NewDocumentCommand\VD{mm}{Vol.\ #1, Doc.\ #2}
+\NewDocumentCommand\D{m}{Doc.\ #1}
+\newcommand{\citets}[1]{\citeauthor{#1}'s (\cite*{#1})}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== lett.sty (only the letter-citation macros actually used) ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareDocumentCommand\letter{mmmmmoo}{%
+{\IfNoValueTF {#6}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}; \cite[#6]{#7}}%
+} %
+\unspace}
+
+\DeclareDocumentCommand\letterp{mmmmmoo}{%
+{(\IfNoValueTF {#6}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}; \cite[#6]{#7}}%
+} %
+\unspace)}
+
+\DeclareDocumentCommand\lettercpaep{mmmmmoo}{%
+{(\IfNoValueTF {#6}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}; \cite[\VD{#6}{#7}]{CPAE}}%
+} %
+\unspace)}
+
+\DeclareDocumentCommand\letteraeap{mmmmmo}{%
+{(\IfNoValueTF {#6}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}; \cite[#6]{EA}}%
+} %
+\unspace)}
+
+\DeclareDocumentCommand\letteraea{mmmmmo}{%
+{\IfNoValueTF {#6}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}}%
+{#1 to #2,  \shortmoam\formatdate{#3}{#4}{#5}; \cite[#6]{EA}}%
+} %
+\unspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== comnat.sty (only the shorthands actually used) ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
+\newcommand{\sr}{special relativity\xspace}
+\newcommand{\footnoteh}[1]{}
+
+\newcommand{\apr}{\latin{a priori}\xspace}
+\newcommand{\ala}{\french{\`{a} la}\xspace}
+
+\newcommand{\latin}[1]{\textit{\selectlanguage{latin}#1}}
+\newcommand{\german}[1]{\textit{\selectlanguage{german}#1}}
+\newcommand{\french}[1]{\textit{\selectlanguage{french}#1}}
+
+\newcommand{\myemph}[1]{\emph{\color{black}#1}}
+\newcommand{\jt}{\textit}
+
+\newcommand{\hide}[2][]{\unspace}
+
+\ifoptiondraft{\newcommand{\cop}[1]{\color{red}{#1}\color{black}\xspace}}{\newcommand{\cop}[1]{\color{black}{#1}\color{black}\xspace}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== dat.sty (date-formatting macros: \datef, \datemy, and their deps) ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[ddmmyyyy]{datetime}
+\usepackage[american]{isodate}
+
+\newdateformat{am}{\monthname[\THEMONTH]\xspace\THEDAY,\xspace\THEYEAR}
+\newdateformat{moyeam}{\monthname[\THEMONTH] of \THEYEAR}
+
+\renewcommand{\shortmonthname}{%
+  \ifcase\THEMONTH
+  \or Jan.\
+  \or Feb.\
+  \or Mar.\
+  \or Apr.\
+  \or May
+  \or Jun.\
+  \or Jul.\
+  \or Aug.\
+  \or Sep.\
+  \or Oct.\
+  \or Nov.\
+  \or Dec.\
+  \fi}
+
+\newdateformat{shortmoam}{\shortmonthname\THEDAY,\xspace\THEYEAR}
+
+\DeclareDocumentCommand\datef{mmm}{\am\formatdate{#1}{#2}{#3}}
+\DeclareDocumentCommand\datemy{mmm}{\moyeam\formatdate{0}{#2}{#3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== secnat.sty (section-heading formatting, verbatim) ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\maybe@addperiod}[1]{%
+  #1\@addpunct{.}%
+}
+
+\usepackage[explicit]{titlesec}
+
+\titleformat{\part}
+  {\normalfont}{\normalsize\bfseries\boldmath{Part \thepart}}{1em}{\normalsize\bfseries\boldmath{#1}}
+
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+           {-18\p@ \@plus 6\p@ \@minus 3\p@}%
+           {9\p@ \@plus 6\p@ \@minus 3\p@}%
+           {\normalsize\bfseries\boldmath}}
+
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+           {-12\p@ \@plus 6\p@ \@minus 3\p@}%
+           {4\p@ \@plus 6\p@ \@minus 3\p@}%
+           {\normalfont\normalsize\itshape}}
+
+\renewcommand\subsubsection{\@startsection{subsubsection}{2}{\z@}%
+           {-12\p@ \@plus 6\p@ \@minus 3\p@}%
+           {4\p@ \@plus 6\p@ \@minus 3\p@}%
+           {\normalfont\normalsize}}
+
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                    {3.25ex \@plus1ex \@minus.2ex}%
+                                    {-1em}%
+                                    {\normalfont\normalsize\itshape\maybe@addperiod}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== natbibspec.sty (natbib-specific patches: \cite, \citets, \rev, ====
+% ====   auto-period-after-footnote), verbatim                        ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\rev}[1]{Review of \citealp{#1}}
+\renewcommand{\cite}{\citealp}
+\renewcommand{\citets}[2][]{\citeauthor{#2}'s (\citeyear{#2}\if\relax\detokenize{#1}\relax\else: #1\fi)}
+\@ifundefined{blx@sf@period}{\mathchardef\blx@sf@period=1006}{}
+\usepackage{bigfoot}
+
+\let\orig@footnote\footnote
+\let\orig@footnotetext\footnotetext
+
+\RenewDocumentCommand{\footnote}{o +m}{%
+  \IfNoValueTF{#1}%
+    {\orig@footnote{#2\@addpunct{.}}}%
+    {\orig@footnote[#1]{#2\@addpunct{.}}}%
+}
+
+\RenewDocumentCommand{\footnotetext}{o +m}{%
+  \IfNoValueTF{#1}%
+    {\orig@footnotetext{#2\@addpunct{.}}}%
+    {\orig@footnotetext[#1]{#2\@addpunct{.}}}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== ii.sty (only the person-name macros actually used) ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Abr}{Abraham\xspace}
+\newcommand{\Ehr}{Ehrenfest\xspace}
+\newcommand{\Mink}{Minkowski\xspace}
+\newcommand{\Var}{Vari{\'{c}}ak\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==== elsnat.sty tail: LaTeXdiff-safety no-ops (kept for parity; harmless
+% ====   if latexdiff is never run on this file) ====
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[normalem]{ulem}
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1}
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}}
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}
+\providecommand{\DIFaddbegin}{}
+\providecommand{\DIFaddend}{}
+\providecommand{\DIFdelbegin}{}
+\providecommand{\DIFdelend}{}
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}}
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}}
+\providecommand{\DIFaddbeginFL}{}
+\providecommand{\DIFaddendFL}{}
+\providecommand{\DIFdelbeginFL}{}
+\providecommand{\DIFdelendFL}{}
+
+\makeatother
+\endinput
